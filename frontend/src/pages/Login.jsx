@@ -95,7 +95,7 @@ const Login = () => {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit}>
+              <form id="login-form-submit" onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <label className="form-label fw-semibold" style={{ color: '#333', fontSize: '0.875rem' }}>
                     Username
@@ -166,7 +166,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="btn w-100 fw-semibold"
+                  className="btn w-100 fw-semibold mb-3"
                   style={{
                     background: loading ? '#ccc' : 'linear-gradient(135deg, #2e7d32, #388e3c)',
                     color: 'white',
@@ -192,6 +192,30 @@ const Login = () => {
                   )}
                 </button>
               </form>
+
+              {/* Quick Admin Sign In Option */}
+              <button
+                type="button"
+                className="btn w-100 fw-semibold"
+                style={{
+                  background: 'rgba(249,168,37,0.1)',
+                  color: '#f9a825',
+                  border: '1px solid rgba(249,168,37,0.3)',
+                  borderRadius: '12px',
+                  height: '50px',
+                  fontSize: '0.9rem',
+                }}
+                disabled={loading}
+                onClick={() => {
+                  setForm({ username: 'admin', password: 'adminpassword' });
+                  setTimeout(() => {
+                    document.getElementById('login-form-submit').requestSubmit();
+                  }, 100);
+                }}
+              >
+                <i className="bi bi-shield-lock me-2" />
+                Quick Admin Login
+              </button>
 
               <div className="text-center mt-4">
                 <span style={{ color: '#888', fontSize: '0.875rem' }}>
