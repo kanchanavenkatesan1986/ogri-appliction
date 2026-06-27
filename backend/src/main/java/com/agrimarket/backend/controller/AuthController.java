@@ -31,8 +31,4 @@ public class AuthController {
     }
 
 
-    @GetMapping("/verify-email")
-    public void verify() {
-        return null;
-    }
 }
