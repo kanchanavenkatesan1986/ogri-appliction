@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://ogri-server.onrender.com/api',
+  baseURL: '/api', // Proxied via vite.config.js to bypass CORS
   headers: {
     'Content-Type': 'application/json',
   },
